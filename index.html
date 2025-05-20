@@ -6,7 +6,7 @@
     <title>Carta Especial do Oppa</title>
     <style>
         body {
-            background-color: #b6e2d3; /* verde claro da borda do sapo */
+            background-color: #b6e2d3;
             font-family: 'Arial', sans-serif;
             padding: 2rem;
             color: #333;
@@ -25,6 +25,18 @@
         }
         .logo img {
             max-height: 100px;
+        }
+        #botaoSom {
+            margin: 1rem auto;
+            display: none;
+            padding: 0.8rem 1.5rem;
+            background-color: #58c0a9;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
         }
     </style>
 </head>
@@ -50,18 +62,24 @@
 
     <audio id="musica" autoplay>
       <source src="musica.mp3" type="audio/mpeg" />
-      Seu navegador não suporta áudio.
     </audio>
 
+    <button id="botaoSom">Clique aqui para ativar a música</button>
+
     <script>
+      const audio = document.getElementById("musica");
+      const botao = document.getElementById("botaoSom");
+      audio.volume = 0.6;
+
       window.addEventListener("DOMContentLoaded", () => {
-        const audio = document.getElementById("musica");
-        audio.volume = 0.6;
-        setTimeout(() => {
-          audio.play().catch((e) => {
-            console.log("Autoplay bloqueado, aguardando interação do usuário.");
-          });
-        }, 1000);
+        audio.play().catch(() => {
+          botao.style.display = "block";
+        });
+      });
+
+      botao.addEventListener("click", () => {
+        audio.play();
+        botao.style.display = "none";
       });
     </script>
 </body>

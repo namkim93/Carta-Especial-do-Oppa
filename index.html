@@ -3,62 +3,66 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carta do Oppa</title>
+    <title>Carta Especial do Oppa</title>
     <style>
         body {
-            background-color: #d6f5d6;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #2e2e2e;
-            padding: 20px;
+            background-color: #b6e2d3; /* verde claro da borda do sapo */
+            font-family: 'Arial', sans-serif;
+            padding: 2rem;
+            color: #333;
+        }
+        .container {
             max-width: 600px;
             margin: auto;
-            border: 5px solid #b2e6b2;
-            border-radius: 15px;
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        img.logo {
-            display: block;
-            margin: 0 auto;
-            max-width: 200px;
-        }
-        h1 {
+        .logo {
             text-align: center;
-            color: #4CAF50;
+            margin-bottom: 1rem;
         }
-        .carta {
-            white-space: pre-wrap;
-            font-size: 1.1em;
+        .logo img {
+            max-height: 100px;
         }
     </style>
 </head>
 <body>
-    <img src="logo.png" alt="Logo Oppa Korean" class="logo">
-    <h1>Carta Especial do Oppa, o Sapinho Coreano</h1>
-    <div class="carta">
-🎀 Carta Especial do Oppa, o Sapinho Coreano 🐸💚
-Annyeonghaseyo! 🇰🇷
-
-Sou o Oppa, o sapinho coreano mais fofo do pedaço! Estou muuuito feliz em ter você com a gente nessa jornada incrível pelo mundo Korean! ✨
-
-🌟 Tenho uma novidade quentinha pra contar:
-Agora, nossos clientes têm passaporte VIP para entrar no nosso grupo exclusivo no WhatsApp! Lá, você encontra produtos coreanos à pronta entrega, além dos nossos kits temáticos incríveis!
-
-🍱 Toda semana, preparamos com carinho pedidos escolhidos por vocês, com entregas rápidas para as nossas sapinhas dorameiras das cidades de:
-📍 Rio de Janeiro
-📍 Curitiba
-📍 São Paulo
-
-📦 Mora em outro estado? Sem problemas! Enviamos tudo direitinho pelas nossas lojas na Shopee e no Mercado Livre, pra você não ficar sem sua dose de Coreia. 💖
-
-Vamos aproveitar juntinhos essa magia das guloseimas coreanas, com muito sabor, carinho e um toque de K-dramas!
-감사합니다 (Kamsahamnida)! 💚
-
-Com amor,
-Oppa, o Sapinho Coreano 🐸🇰🇷
+    <div class="container">
+        <div class="logo">
+            <img src="logo.png" alt="Logo do Oppa">
+        </div>
+        <h1>🎀 Carta Especial do Oppa, o Sapinho Coreano 🐸💚</h1>
+        <p>Annyeonghaseyo! 🇰🇷</p>
+        <p>Sou o Oppa, o sapinho coreano mais fofo do pedaço! Estou muuuito feliz em ter você com a gente nessa jornada incrível pelo mundo Korean! ✨</p>
+        <p><strong>🌟 Tenho uma novidade quentinha pra contar:</strong><br>
+        Agora, nossos clientes têm passaporte VIP para entrar no nosso grupo exclusivo no WhatsApp! Lá, você encontra produtos coreanos à pronta entrega, além dos nossos kits temáticos incríveis!</p>
+        <p><strong>🍱 Toda semana, preparamos com carinho pedidos escolhidos por vocês, com entregas rápidas para:</strong><br>
+        📍 Rio de Janeiro<br>
+        📍 Curitiba<br>
+        📍 São Paulo</p>
+        <p><strong>📦 Mora em outro estado?</strong> Sem problemas! Enviamos tudo direitinho pelas nossas lojas na Shopee e no Mercado Livre, pra você não ficar sem sua dose de Coreia. 💖</p>
+        <p>감사합니다 (Kamsahamnida)! 💚</p>
+        <p>Com amor,<br>
+        Oppa, o Sapinho Coreano 🐸🇰🇷</p>
     </div>
-    <audio autoplay loop>
-        <source src="musica.mp3" type="audio/mpeg">
-        Seu navegador não suporta áudio.
+
+    <audio id="musica" autoplay>
+      <source src="musica.mp3" type="audio/mpeg" />
+      Seu navegador não suporta áudio.
     </audio>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const audio = document.getElementById("musica");
+        audio.volume = 0.6;
+        setTimeout(() => {
+          audio.play().catch((e) => {
+            console.log("Autoplay bloqueado, aguardando interação do usuário.");
+          });
+        }, 1000);
+      });
+    </script>
 </body>
 </html>
